@@ -1,0 +1,41 @@
+version: "3.8"
+
+volumes:
+  postgres_vol:
+    driver: local
+
+networks:
+  backend:
+    driver: bridge
+
+services:
+  php:
+    build:
+      context: ".docker/php"
+    restart: always
+    ports:
+      - "10351:80"
+    volumes:
+      - ".:/var/www/html"
+    networks:
+      - "backend"
+
+  pgsql:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - "postgres_vol:/var/lib/postgresql"
+    networks:
+      - "backend"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - "backend"
