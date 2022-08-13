@@ -12,9 +12,9 @@ class Color
         int $blue
     )
     {
-        $this->red = $red;
-        $this->green = $green;
-        $this->blue = $blue;
+        $this->setRed($red);
+        $this->setGreen($green);
+        $this->setBlue($blue);
     }
 
     public function setRed(int $code): void
