@@ -1,11 +1,5 @@
 <?php
 
-/*
- * get rid of setters
- * change constuctor
- * change throwing exception from within setter to getUserData()
- * */
-
 class User
 {
     // id variable has mixed datatype for training in throwing exceptions
