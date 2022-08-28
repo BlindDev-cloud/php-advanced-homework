@@ -2,6 +2,14 @@
 
 declare(strict_types=1);
 
+class MethodNotExistsException extends Exception
+{
+    public function __construct(string $message = "", int $code = 0, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
+}
+
 class User
 {
     private string $name = '';
@@ -11,7 +19,7 @@ class User
     public function __call(string $name, array $arguments): void
     {
         if(!method_exists($this, $name)){
-            throw new Exception(message: 'Method does`t exist');
+            throw new MethodNotExistsException(message: 'Method does not exist');
         }
 
         call_user_func_array([$this, $name], $arguments);
@@ -44,6 +52,6 @@ try {
     $user->setAge(23);
     var_dump($user->getAll());
     $user->setEmail();
-}catch (Exception $exception){
+}catch (MethodNotExistsException $exception){
     echo $exception->getMessage().PHP_EOL;
 }
