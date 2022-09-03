@@ -9,9 +9,7 @@ class Regex
 
     public function replaceLastWord(string $text): string
     {
-        $lastWord = array_reverse(explode(' ', $text))[0];
-
-        return preg_replace("/$lastWord$/", '', $text);
+        return preg_replace('/\w+$/', '', $text);
     }
 
     public function replaceSpaces(string $text): string
