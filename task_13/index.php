@@ -1,3 +1,13 @@
+<?php
+
+require_once __DIR__.'/functions/database.php';
+
+$pdo = get_database_connection();
+
+$table = $pdo->query('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema=\'db\' AND table_name=\'users\'')->fetch();
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,12 +30,19 @@
 
                 <form action="">
 
+                    <?php if(!$table): ?>
 
                         <a href="controllers/create-users-table-controller.php" class="btn btn-lg btn-primary d-block w-100">
                             Create table
                         </a>
 
+                    <?php else: ?>
 
+                        <p class="h4 text-success text-center">
+                            Table users created
+                        </p>
+
+                    <?php endif; ?>
 
                 </form>
 
