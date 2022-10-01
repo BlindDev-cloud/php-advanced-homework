@@ -18,29 +18,47 @@ $table = $pdo->query('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema
     <title>Main Page</title>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body>
+<body class="bg-dark text-light">
 
-<main class="bg-dark text-light py-5">
+<header>
+
+    <h1 class="text-center pt-4">User control</h1>
+
+</header>
+
+<main class="pb-5">
 
     <div class="container">
 
         <div class="row justify-content-center">
 
-            <div class="col col-lg-4 mt-5">
+            <div class="col col-lg-4 mt-5" style="background-color: rgb(0, 25, 37);">
 
                 <form action="">
 
                     <?php if(!$table): ?>
 
+                    <div class="my-3">
+
                         <a href="controllers/create-users-table-controller.php" class="btn btn-lg btn-primary d-block w-100">
                             Create table
                         </a>
+
+                    </div>
 
                     <?php else: ?>
 
                         <p class="h4 text-success text-center">
                             Table users created
                         </p>
+
+                        <div class="my-4">
+
+                            <a href="create-user-form.php" class="btn btn-lg btn-secondary d-block w-100">
+                                Add user
+                            </a>
+
+                        </div>
 
                     <?php endif; ?>
 
@@ -53,6 +71,8 @@ $table = $pdo->query('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema
     </div>
 
 </main>
+
+<footer></footer>
 
 </body>
 </html>
