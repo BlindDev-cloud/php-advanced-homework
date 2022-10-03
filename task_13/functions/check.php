@@ -21,3 +21,18 @@ function is_email(string $email): bool
 
     return true;
 }
+
+function user_exists(int $id, PDO $pdo) : bool
+{
+    $query = 'SELECT `id` FROM `users`';
+
+    $statement = $pdo->query($query);
+
+    while($user = $statement->fetch()){
+        if($id === $user['id']){
+          return true;
+        }
+    }
+
+    return false;
+}

@@ -4,11 +4,11 @@
 
         <?php foreach ($_alerts as $alert): ?>
 
-            <div class="alert alert-<?php echo $alert['type']; ?>">
+            <p class="alert h5 text-white bg-<?php echo $alert['type']; ?>">
 
                 <?php echo $alert['text']; ?>
 
-            </div>
+            </p>
 
         <?php endforeach; ?>
 

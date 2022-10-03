@@ -34,8 +34,6 @@ $table = $pdo->query('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema
 
             <div class="col col-lg-4 mt-5" style="background-color: rgb(0, 25, 37);">
 
-                <form action="">
-
                     <?php if(!$table): ?>
 
                     <div class="my-3">
@@ -60,9 +58,15 @@ $table = $pdo->query('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema
 
                         </div>
 
-                    <?php endif; ?>
+                        <div class="my-4">
 
-                </form>
+                            <a href="controllers/get-users-IDs.php" class="btn btn-lg btn-secondary d-block w-100">
+                                Go to users table
+                            </a>
+
+                        </div>
+
+                    <?php endif; ?>
 
             </div>
 
