@@ -4,7 +4,6 @@ session_start();
 
 require_once __DIR__.'/../functions/database.php';
 
-
 $pdo = get_database_connection();
 
 $statement = $pdo->query('SELECT `id` FROM `users`');

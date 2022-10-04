@@ -58,14 +58,18 @@ $alerts = get_alerts();
             </div>
 
             <div class="col col-lg-3 my-3">
-                <button class="btn btn-lg btn-secondary d-block w-100">
-                    Show info
+                <button type="button" class="btn btn-lg btn-secondary d-block w-100">
+                    <a href="controllers/get-users-data-controller.php" class="nav-link">
+                        Show info
+                    </a>
                 </button>
             </div>
 
             <div class="col col-lg-3 my-3">
-                <button class="btn btn-lg btn-secondary d-block w-100">
-                    Delete users
+                <button type="button" class="btn btn-lg btn-secondary d-block w-100">
+                    <a href="controllers/delete-users-controller.php" class="nav-link">
+                        Delete users
+                    </a>
                 </button>
             </div>
 
