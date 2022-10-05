@@ -18,3 +18,20 @@ function get_database_connection(): PDO
 
     return $pdo;
 }
+
+function user_table_exists(PDO $pdo): bool
+{
+    return (bool)$pdo->query('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema=\'db\' AND table_name=\'users\'')->fetch();
+}
+
+function get_user_data(PDO $pdo, int $id) : array
+{
+    $query = 'SELECT * FROM users
+            WHERE id=:id';
+
+    $statement = $pdo->prepare($query);
+
+    $statement->execute(compact('id'));
+
+    return $statement->fetch() ?? [];
+}

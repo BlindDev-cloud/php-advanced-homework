@@ -1,12 +1,10 @@
 <?php
 
-require_once __DIR__.'/../functions/database.php';
+require_once __DIR__ . '/../functions/database.php';
 
 $pdo = get_database_connection();
 
-$table = $pdo->query('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema=\'db\' AND table_name=\'users\'')->fetch();
-
-if($table){
+if (user_table_exists($pdo)) {
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 
     exit();

@@ -6,7 +6,7 @@ require_once __DIR__ . '/../functions/database.php';
 require_once __DIR__ . '/../functions/alerts.php';
 require_once __DIR__.'/../functions/check.php';
 
-// 1. Check id in GET request
+// 1. validate id
 
 $id = $_GET['id'] ?? null;
 
@@ -18,8 +18,6 @@ if(!isset($id)){
     exit();
 }
 
-// 2. Validate id
-
 if(!is_numeric($id)){
     set_alert('danger', 'Invalid id');
 
@@ -28,19 +26,19 @@ if(!is_numeric($id)){
     exit();
 }
 
-// 3. Check id in database
+// 2. check id in database
 
 $pdo = get_database_connection();
 
-if(!user_exists($id, $pdo)){
-    set_alert('danger', 'User doesn`t exist');
+if(!user_exists($pdo, $id)){
+    set_alert('danger', 'User does not exist');
 
     header('Location: '.$_SERVER['HTTP_REFERER']);
 
     exit();
 }
 
-// 4. Add id to buffer session
+// 3. add id to buffer session
 
 if(!isset($_SESSION['buffer'])){
     $_SESSION['buffer'] = [];

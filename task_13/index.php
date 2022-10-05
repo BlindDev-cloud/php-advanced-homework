@@ -1,10 +1,8 @@
 <?php
 
-require_once __DIR__.'/functions/database.php';
+require_once __DIR__ . '/functions/database.php';
 
 $pdo = get_database_connection();
-
-$table = $pdo->query('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema=\'db\' AND table_name=\'users\'')->fetch();
 
 ?>
 
@@ -34,39 +32,41 @@ $table = $pdo->query('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema
 
             <div class="col col-lg-4 mt-5" style="background-color: rgb(0, 25, 37);">
 
-                    <?php if(!$table): ?>
+                <?php if (!user_table_exists($pdo)): ?>
 
                     <div class="my-3">
 
-                        <a href="controllers/create-users-table-controller.php" class="btn btn-lg btn-primary d-block w-100">
-                            Create table
+                        <a href="controllers/create-user-table-controller.php"
+                           class="btn btn-lg btn-primary d-block w-100">
+                            Create user table
                         </a>
 
                     </div>
 
-                    <?php else: ?>
+                <?php else: ?>
 
-                        <p class="h4 text-success text-center">
-                            Table users created
-                        </p>
+                    <p class="h4 text-success text-center">
+                        User table created
+                    </p>
 
-                        <div class="my-4">
+                    <div class="my-4">
 
-                            <a href="create-user-form.php" class="btn btn-lg btn-secondary d-block w-100">
-                                Add user
-                            </a>
+                        <a href="create-user-form.php" class="btn btn-lg btn-secondary d-block w-100">
+                            Add user
+                        </a>
 
-                        </div>
+                    </div>
 
-                        <div class="my-4">
+                    <div class="my-4">
 
-                            <a href="controllers/get-users-IDs.php" class="btn btn-lg btn-secondary d-block w-100">
-                                Go to users table
-                            </a>
+                        <a href="controllers/get-user-ids-controller.php"
+                           class="btn btn-lg btn-secondary d-block w-100">
+                            Go to user table
+                        </a>
 
-                        </div>
+                    </div>
 
-                    <?php endif; ?>
+                <?php endif; ?>
 
             </div>
 
@@ -75,8 +75,6 @@ $table = $pdo->query('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema
     </div>
 
 </main>
-
-<footer></footer>
 
 </body>
 </html>

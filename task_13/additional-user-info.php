@@ -17,14 +17,14 @@ $_SESSION['users'] = [];
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Users ids</title>
+    <title>Additional user info</title>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body class="bg-dark text-light">
 
 <header>
 
-    <h1 class="text-center pt-4">Users info</h1>
+    <h1 class="text-center pt-4">User info</h1>
 
 </header>
 
@@ -32,7 +32,7 @@ $_SESSION['users'] = [];
 
     <div class="container">
 
-        <table class="table">
+        <table class="table class="border border-light"">
 
             <thead>
 
@@ -77,7 +77,7 @@ $_SESSION['users'] = [];
 
             <div class="col col-lg-3 my-3">
                 <button type="button" class="btn btn-lg btn-secondary d-block w-100">
-                    <a href="user-IDs-table.php" class="nav-link">
+                    <a href="user-table.php" class="nav-link">
                         Go back
                     </a>
                 </button>

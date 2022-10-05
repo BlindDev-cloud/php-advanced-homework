@@ -2,9 +2,8 @@
 
 session_start();
 
-require_once __DIR__.'/functions/alerts.php';
-require_once __DIR__.'/functions/templates.php';
-
+require_once __DIR__ . '/functions/alerts.php';
+require_once __DIR__ . '/functions/templates.php';
 
 $alerts = get_alerts();
 
@@ -17,7 +16,7 @@ $alerts = get_alerts();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add new user form</title>
+    <title>Add user form</title>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body class="bg-dark text-light">
@@ -56,20 +55,21 @@ $alerts = get_alerts();
 
                     <div class="my-3">
 
-                        <?php
-
-                            echo get_template_contents(__DIR__.'/templates/alerts.php', [
-                                    'alerts' => $alerts
-                            ]);
-
-                        ?>
-
                         <button type="submit" class="btn btn-lg btn-success d-block w-100">
                             Submit
                         </button>
 
-                    </div>
+                        <br>
 
+                        <?php
+
+                        echo get_template_contents(__DIR__ . '/templates/alerts.php', [
+                            'alerts' => $alerts
+                        ]);
+
+                        ?>
+
+                    </div>
 
                 </form>
 

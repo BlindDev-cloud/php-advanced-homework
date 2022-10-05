@@ -22,9 +22,9 @@ function is_email(string $email): bool
     return true;
 }
 
-function user_exists(int $id, PDO $pdo) : bool
+function user_exists(PDO $pdo, int $id) : bool
 {
-    $query = 'SELECT `id` FROM `users`';
+    $query = 'SELECT id FROM users';
 
     $statement = $pdo->query($query);
 

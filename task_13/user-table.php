@@ -5,7 +5,11 @@ session_start();
 require_once __DIR__.'/functions/alerts.php';
 require_once __DIR__.'/functions/templates.php';
 
-$userIds = $_SESSION['ids'];
+$ids = $_SESSION['ids'];
+
+if(empty($ids)){
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
 
 $alerts = get_alerts();
 
@@ -18,14 +22,14 @@ $alerts = get_alerts();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Users ids</title>
+    <title>User table</title>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body class="bg-dark text-light">
 
 <header>
 
-    <h1 class="text-center pt-4">Users ids</h1>
+    <h1 class="text-center pt-4">User table</h1>
 
 </header>
 
@@ -35,11 +39,10 @@ $alerts = get_alerts();
 
         <div class="row justify-content-center">
 
-            <?php foreach ($userIds as $user): ?>
+            <?php foreach ($ids as $id): ?>
 
-
-                    <a href="controllers/add-user-to-buffer-controller.php?id=<?php echo $user['id']; ?>" class="btn btn-link btn-lg d-block text-light bg-dark" style="border: white 3px solid;">
-                        <?php echo $user['id']; ?>
+                    <a href="controllers/add-user-to-buffer-controller.php?id=<?php echo $id; ?>" class="btn btn-link btn-lg d-block text-light bg-dark" style="border: white 3px solid;">
+                        <?php echo $id; ?>
                     </a>
 
 
