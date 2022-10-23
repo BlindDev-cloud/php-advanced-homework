@@ -1,6 +1,11 @@
 <?php
 
-class Mysql
+interface Database
+{
+    public function getData();
+}
+
+class Mysql implements Database
 {
     public function getData()
     {
@@ -12,9 +17,9 @@ class Controller
 {
     private $adapter;
 
-    public function __construct(Mysql $mysql)
+    public function __construct(Database $db)
     {
-        $this->adapter = $mysql;
+        $this->adapter = $db;
     }
 
     function getData()
